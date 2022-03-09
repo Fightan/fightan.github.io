@@ -55,7 +55,6 @@ a{
 
 @logo-header-width: 170px;
 @header-height: 70px;
-@menu-padding: 30px;
 @animTime: 0.5s;
 
 #header{
@@ -137,8 +136,9 @@ a{
 
 }
 
+@sidenavSize: 350px;
 #sidenav{
-    width: 350px;
+    width: @sidenavSize;
     height: 100vh;
     background-color: black;
     position: fixed;
@@ -166,7 +166,7 @@ a{
 
 .closeSideNav{
     // animation: closeSideNav @animTime ease-in-out forwards;
-    right: -350px;
+    right: -@sidenavSize;
 }
 
 
@@ -229,6 +229,12 @@ section{
         // width: calc(@logo-header-size/2);
         width: inherit;
     }
+}
+
+@media screen and (min-width:992px){
+    #header #menu .items>a{
+        padding: 0px 20px;
+    } 
 }
 
 @media screen and (min-width:768px){
