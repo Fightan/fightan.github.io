@@ -15,7 +15,7 @@ $(function(){
 
     $("#menu-burger").on("click", function(){
         var endDate = new Date();
-        if(endDate - date > 750){
+        if(endDate - date > 0){
             date = new Date();
             if(isSideNavOpen){
                 closeSideNav();
