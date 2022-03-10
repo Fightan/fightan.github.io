@@ -1,7 +1,6 @@
 var animate = true;
 var animating = false;
 var isSideNavOpen = false;
-var date = new Date();
 
 $(function(){
     $("#logo-header").on({mouseenter: function(){
@@ -13,29 +12,24 @@ $(function(){
         animate = false;
     }});
 
-    $("#menu-burger").on("click", function(){
-        var endDate = new Date();
-        if(endDate - date > 0){
-            date = new Date();
-            if(isSideNavOpen){
-                closeSideNav();
-                isSideNavOpen = false;
-            }else{
-                openSideNav()
-                isSideNavOpen = true;
-            }
-        }
+    $("#menu-burger").on("click", function(e){
+        e.stopPropagation();
+        sideNav();
+    })
+
+    $("#sidenav").on("click", function(e){
+        e.stopPropagation();
+    })
+
+    $("html, body").on("click", function(){
+        $("#logo-header").removeClass("translateLogoON");
+        $("#sidenav").removeClass("openSideNav");
     })
 });
 
-function openSideNav(){
-    $("#logo-header").addClass("translateLogoON").removeClass("translateLogoOFF");
-    $("#sidenav").addClass("openSideNav").removeClass("closeSideNav");
-}
-
-function closeSideNav(){
-    $("#logo-header").addClass("translateLogoOFF").removeClass("translateLogoON");
-    $("#sidenav").addClass("closeSideNav").removeClass("openSideNav");
+function sideNav(){
+    $("#logo-header").toggleClass("translateLogoON");
+    $("#sidenav").toggleClass("openSideNav")
 }
 
 function logoAnim(){

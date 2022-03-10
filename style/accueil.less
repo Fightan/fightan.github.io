@@ -105,16 +105,16 @@ a{
             transition: @animTime;
         }
 
+        .translateLogoOFF{
+            // animation: translateLogoOFF @animTime ease-in-out forwards;
+            left: 0%;
+        }
+
         .translateLogoON{
             // animation: translateLogoON @animTime ease-in-out forwards;
             left: calc(100vw - 250px);
         }
 
-        .translateLogoOFF{
-            // animation: translateLogoOFF @animTime ease-in-out forwards;
-            left: 0%;
-        }
-    
         #empty-space{
             width: @logo-header-width;
 
@@ -159,15 +159,16 @@ a{
 
 }
 
+.closeSideNav{
+    // animation: closeSideNav @animTime ease-in-out forwards;
+    right: -@sidenavSize;
+}
+
 .openSideNav{
     // animation: openSideNav @animTime ease-in-out forwards;
     right: 0%;
 }
 
-.closeSideNav{
-    // animation: closeSideNav @animTime ease-in-out forwards;
-    right: -@sidenavSize;
-}
 
 
 section{
