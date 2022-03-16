@@ -25,6 +25,11 @@ $(function(){
         $("#logo-header").removeClass("translateLogoON");
         $("#sidenav").removeClass("openSideNav");
     })
+
+    $("#clouds>div>img").each(function(index, element){
+        $(this).css("animation", "animCloud1 " + (Math.random()*8+2) + "s linear infinite");
+    })
+
 });
 
 function sideNav(){

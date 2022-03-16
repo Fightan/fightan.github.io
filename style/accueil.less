@@ -38,6 +38,10 @@ h3{
     color: rgb(0, 0, 0);
 }
 
+ul{
+    list-style-type: none;
+}
+
 a{
     text-decoration: none;
     color: inherit;
@@ -48,6 +52,13 @@ a{
     }
 }
 
+.button{
+    padding: 10px 15px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
 
 .minecraft-font{
     font-family: "Minecraft";
@@ -106,12 +117,10 @@ a{
         }
 
         .translateLogoOFF{
-            // animation: translateLogoOFF @animTime ease-in-out forwards;
             left: 0%;
         }
 
         .translateLogoON{
-            // animation: translateLogoON @animTime ease-in-out forwards;
             left: calc(100vw - 250px);
         }
 
@@ -132,7 +141,24 @@ a{
             }
         }
     }
+}
 
+#clouds{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: -3;
+
+    div{
+        width: 100vw;
+        height: 100vh;
+    }
+
+    img{
+        width: 200px;
+        position: relative;
+        right: -200px;
+    }
 
 }
 
@@ -160,57 +186,82 @@ a{
 }
 
 .closeSideNav{
-    // animation: closeSideNav @animTime ease-in-out forwards;
     right: -@sidenavSize;
 }
 
 .openSideNav{
-    // animation: openSideNav @animTime ease-in-out forwards;
     right: 0%;
 }
 
-
-
 section{
     box-sizing: none;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 #haveFun{
+    background-image: url(images/tanjiro_et-mario.png);
+    background-repeat: no-repeat;
+    background-position: 70% 50%;
+    background-size: auto 50%;
+    overflow-x: hidden;
+
     .row{
-        height: 100%;
-
-        #col1{
+        min-height: 100vh; 
+        margin: 0px;
+        
+        .col-12{
+            margin-top: @header-height;
+        }
+        
+        .logos{
+            width: 100%;
             position: relative;
+            margin-left: 20%;;
+        }
+        
+        #logo-svg{
+            width: 75%;
+        }
+        
+        #logo-svg-shadow{
+            width: 100%;
+            position: absolute;
+            top: 30%;
+            fill: rgb(231, 231, 231);
+            z-index: -1;
+            animation: animTranslate 2s ease-in-out forwards;
+        }
 
-            #logo-main1{
-                position: relative;
-                width: 500px;
-                left: 10%;
+        .minecraft-font{
+            font-size: 1.5em;
+            line-height: 1.4em;
+            text-align: center;
+        }
+
+        .button{
+            font-size: 1.1em;
+        }
+
+        img{
+            padding-top: 50px;
+            width: 80%;
+        }
+
+        ul{
+            width: 250px;
+
+            li{
+                text-align: left;
+                font-size: 0.8em;
+                line-height: 2.3em;
+    
+                &:hover{
+                    font-weight: bold;
+                }
             }
 
-            @media screen and (max-width: 768px) {
-                #logo-main1{
-                    left: 0%;
-                } 
-            }
-            #logo-main2{
-                position: absolute;
-                left: -40%;
-                top: 25%;
-                width: 700px;
-                fill: rgb(224, 224, 224);
-                z-index: -1;
-            }
-
-            p{
-                text-align: center;
-                font-size: 1.5em;
-                line-height: 1.25em;
-            }
         }
     }
-
 }
 
 @keyframes animLogo {
@@ -225,11 +276,54 @@ section{
     }
 }
 
+@keyframes animTranslate {
+    0%{
+        right: -100%;
+    }
+    100%{
+        right: 50%;
+    }
+}
+
+@keyframes animCloud1 {
+    to {
+        right: 100vw;
+    } 
+}
+
+//Jusqu'à
+@media screen and (max-width: 992px) {
+    #haveFun{
+        background-position: 120% 50%;
+    }
+    
+}
+
 @media screen and (max-width:768px){
     #header #menu #empty-space{
-        // width: calc(@logo-header-size/2);
         width: inherit;
     }
+
+    #haveFun{
+        background-image: none;
+
+        .container{
+            padding: 0px;
+        }
+
+        .row{
+            height: 150vh;
+            .logos{
+                margin-left: 0%;
+            }
+            #logo-svg{
+                width: 90%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 576px){
 }
 
 @media screen and (min-width:992px){
@@ -238,6 +332,7 @@ section{
     } 
 }
 
+//À partir de...
 @media screen and (min-width:768px){
      #header #menu .translateLogoON{
         left: 0%;
