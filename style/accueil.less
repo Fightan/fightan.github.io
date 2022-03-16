@@ -17,6 +17,8 @@ body{
     line-height: 1.25em;
     color: rgb(0, 0, 0);
     overflow-x: hidden;
+    transition: all 0.3s ease-in-out;
+
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -62,6 +64,14 @@ a{
 
 .minecraft-font{
     font-family: "Minecraft";
+}
+
+.titre{
+    font-size: 3em;
+}
+
+.blue{
+    color: #07ABFF;
 }
 
 @logo-header-width: 170px;
@@ -193,13 +203,50 @@ a{
     right: 0%;
 }
 
+.darkMode{
+    cursor: pointer;
+}
+
+#darkMode{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1;
+    background-color: black;
+} 
+
+#darkMode, .darkMode{
+    span{
+        transition: all 0.1s ease-in-out;
+        padding: 10px 20px; 
+        color: white;
+        border: 2px solid black;
+    }
+
+    span:first-child{
+        background-color: white;
+        color: black;
+    }
+
+    .dark{
+        span{
+            background-color: white;
+            color: black
+        }
+        span:first-child{
+            background-color: black;
+            color: white;
+        }
+    }
+}
+
+
 section{
     box-sizing: none;
-    min-height: 100vh;
 }
 
 #haveFun{
-    background-image: url(images/tanjiro_et-mario.png);
+    background-image: url(images/tanjiro_et_mario.png);
     background-repeat: no-repeat;
     background-position: 70% 50%;
     background-size: auto 50%;
@@ -220,14 +267,15 @@ section{
         }
         
         #logo-svg{
-            width: 75%;
+            width: 74%;
         }
         
         #logo-svg-shadow{
             width: 100%;
             position: absolute;
             top: 30%;
-            fill: rgb(231, 231, 231);
+            // fill: rgb(231, 231, 231);
+            opacity: 0.075;
             z-index: -1;
             animation: animTranslate 2s ease-in-out forwards;
         }
@@ -264,6 +312,79 @@ section{
     }
 }
 
+.transition{
+    position: relative;
+    bottom: 115px;
+    margin-bottom: -80px;
+    line-height: 5em;
+    overflow-x: hidden;
+
+    span{
+        font-size: 4em;
+        position: relative;
+        top: 80px;
+    }
+
+    img{
+        height: 100%;
+    }
+}
+
+#majs{
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    .titres{
+        position: relative;
+        text-align: right;
+        padding-bottom: 50px;
+
+        span{
+            line-height: 1.2em;
+        }
+
+        span:last-child{
+            font-size: 4em;
+            position: absolute;
+            top: 10%;
+            right: -100%;
+            opacity: 0.075;
+            animation: animTranslate0 2s ease-in-out forwards;
+            white-space: nowrap;
+        }
+    }
+
+    .row{
+        position: relative;
+        font-size: 1.2em;
+        text-align: right;
+
+        #mario-with-cube{
+            width: 500px;
+            position: absolute;
+            top: 0%;
+            left: -100px;
+            z-index: -2;
+        }
+
+        .images{
+            padding-top: 30px;
+        }
+
+        .images>img:first-child{
+            padding-right: 10px;
+        }
+
+        span{
+            font-weight: bold;
+        }
+
+        p{
+            padding-top: 20px;
+        }
+    }
+}
+
 @keyframes animLogo {
     0%{
         fill: black;
@@ -281,8 +402,15 @@ section{
         right: -100%;
     }
     100%{
-        right: 50%;
+        right: 30%;
     }
+}
+
+@keyframes animTranslate0 {
+    to {
+        right: 5%;
+    }
+    
 }
 
 @keyframes animCloud1 {
@@ -295,6 +423,17 @@ section{
 @media screen and (max-width: 992px) {
     #haveFun{
         background-position: 120% 50%;
+    }
+
+    #majs{
+        .row{
+            
+
+            #mario-with-cube{
+                top: 20%;
+                left: -250px; 
+            }
+        }
     }
     
 }
@@ -318,6 +457,14 @@ section{
             }
             #logo-svg{
                 width: 90%;
+            }
+        }
+    }
+
+    #majs{
+        .row{
+            .images>img:first-child{
+                padding-bottom: 10px;
             }
         }
     }

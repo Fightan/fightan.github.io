@@ -17,6 +17,21 @@ $(function(){
         sideNav();
     })
 
+    $("#darkMode, .darkMode").on("click", function(){
+        var mode = $(this).attr("data-mode");
+        $("#darkMode>div, .darkMode>div").toggleClass("dark");
+
+        if(mode == "dark"){
+            $("body").css("background-color", "black");  
+            $("body>*:not(#sidenav, #header)").css({"fill": "white", "color": "white"});
+            $("#darkMode, .darkMode").attr("data-mode", "light");
+        }else{
+            $("body").css("background-color", "white");  
+            $("body>*:not(#sidenav, #header)").css({"fill": "black", "color": "black"});
+            $("#darkMode, .darkMode").attr("data-mode", "dark");
+        }
+    })
+
     $("#sidenav").on("click", function(e){
         e.stopPropagation();
     })
