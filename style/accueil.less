@@ -66,6 +66,23 @@ a{
     font-family: "Minecraft";
 }
 
+.titres{
+    position: relative;
+    text-align: right;
+
+    span{
+        line-height: 1.2em;
+    }
+
+    span:last-child{
+        font-size: 4em;
+        position: absolute;
+        top: 10%;
+        opacity: 0.075;
+        white-space: nowrap;
+    }
+}
+
 .titre{
     font-size: 3em;
 }
@@ -182,7 +199,7 @@ a{
     padding-top: @header-height;    
     font-weight: bold;
     transition:@animTime;
-    z-index: 50;
+    z-index: 99;
 
     a{
         padding: 20px 0px;
@@ -211,7 +228,7 @@ a{
     position: fixed;
     bottom: 10px;
     right: 10px;
-    z-index: 1;
+    z-index: 98;
     background-color: black;
 } 
 
@@ -274,10 +291,9 @@ section{
             width: 100%;
             position: absolute;
             top: 30%;
-            // fill: rgb(231, 231, 231);
             opacity: 0.075;
             z-index: -1;
-            animation: animTranslate 2s ease-in-out forwards;
+            animation: animTranslate1 2s ease-in-out forwards;
         }
 
         .minecraft-font{
@@ -328,6 +344,11 @@ section{
     img{
         height: 100%;
     }
+
+}
+.removePaddingBottom{
+    bottom: -100px;
+    margin-bottom: 100px;
 }
 
 #majs{
@@ -335,22 +356,12 @@ section{
     overflow-x: hidden;
 
     .titres{
-        position: relative;
-        text-align: right;
         padding-bottom: 50px;
 
-        span{
-            line-height: 1.2em;
-        }
-
         span:last-child{
-            font-size: 4em;
-            position: absolute;
             top: 10%;
             right: -100%;
-            opacity: 0.075;
-            animation: animTranslate0 2s ease-in-out forwards;
-            white-space: nowrap;
+            .animTranslate(30%);
         }
     }
 
@@ -385,6 +396,88 @@ section{
     }
 }
 
+#jeux{
+    .row1:last-child{
+        min-height: 400px;
+    }
+
+    .titre{
+        line-height: 1.0em;
+    }
+
+    .row2{
+        margin-top: 220px;
+        text-align: right;
+
+    }
+    .titres{
+        text-align: center;
+        padding-bottom: 50px;
+
+        span:last-child{
+            top: 10%;
+            right: -100%;
+            .animTranslate(5%);
+        }
+    }
+
+    .col-12{
+        font-size: 1.2em;
+        span{
+            font-weight: bold;
+        }
+
+        p{
+            padding-top: 20px;
+        }
+    }
+
+    .images{
+        position: relative;
+
+        #ds-img1{
+            z-index: -1;
+        }
+
+        img{
+            width: 90%;
+            position: absolute;
+            top: 50%;
+            right: 0px;
+            transform: translate(0%, -50%);
+        }
+
+        div{
+            width: 100%;
+            height: 100%;
+            background-image: url(images/dslogo.png);
+            background-size: 25% auto;
+            background-repeat: no-repeat;
+            background-position: 75% 65%;;
+            background-attachment: fixed;
+            z-index: 10;
+        }
+    }
+
+    .row2{
+        .images{
+            min-height: 250px;
+            img{
+                left: 0px;
+            }
+            div{
+                background-position: 35% 65%;
+                background-image: url(images/new_super_mario_logo.png);
+            }
+        }
+    }
+
+}
+
+#coucou{
+    height: 100vh;
+}
+
 @keyframes animLogo {
     0%{
         fill: black;
@@ -397,18 +490,22 @@ section{
     }
 }
 
-@keyframes animTranslate {
-    0%{
-        right: -100%;
+.animTranslate(@distance){
+    animation: animTranslate 2s ease-in-out forwards;
+    @keyframes animTranslate {
+        to{
+            right: @distance;
+        }
     }
-    100%{
-        right: 30%;
-    }
+
 }
 
-@keyframes animTranslate0 {
-    to {
-        right: 5%;
+@keyframes animTranslate1 {
+    0%{
+        left: 100%;
+    }
+    100%{
+        left: -30%;
     }
     
 }
@@ -420,6 +517,15 @@ section{
 }
 
 //Jusqu'à
+
+@media screen and (max-width: 1200px){
+    #jeux{
+        .row2 .images{
+            height: 200px;
+        }
+    } 
+}
+
 @media screen and (max-width: 992px) {
     #haveFun{
         background-position: 120% 50%;
@@ -432,6 +538,30 @@ section{
             #mario-with-cube{
                 top: 20%;
                 left: -250px; 
+            }
+        }
+    }
+
+    #jeux{
+        .images{
+            min-height: 300px;
+            margin-top: 40px;
+            div{
+                background-position: 65% 50%;
+                background-size: 40% auto;
+            }
+        }
+
+        .row2:last-child{
+            min-height: 100px;
+        }
+
+        .row2 .images{
+            img{
+                left: inherit;
+            }
+            div{
+                background-position: 60% 50%;
             }
         }
     }
@@ -473,13 +603,13 @@ section{
 @media screen and (max-width: 576px){
 }
 
+//À partir de...
 @media screen and (min-width:992px){
     #header #menu .items>a{
         padding: 0px 20px;
     } 
 }
 
-//À partir de...
 @media screen and (min-width:768px){
      #header #menu .translateLogoON{
         left: 0%;
