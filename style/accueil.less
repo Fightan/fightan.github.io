@@ -475,6 +475,94 @@ section{
 
 }
 
+#telecharger{
+    padding-top: 40px;
+    overflow-x: hidden;
+
+    .col{
+        background-color: #d1d1d149;
+        padding: 80px 15px;
+        margin-bottom: 20px;
+
+
+        &:hover+p, &+p:hover{
+            opacity: 1;
+        }
+    }
+
+    .titres{
+        text-align: center;
+        margin-bottom: 70px;
+
+        span:last-child{
+            top: 10%;
+            right: -100%;
+            .animTranslate(20%);
+        }
+    }
+    
+    img{
+        width: 70%;
+        padding-bottom: 25px;
+    }
+    
+    span:not(.titre){
+        font-weight: bold;
+        text-align: center;
+        font-size: 1.5em;
+    }
+
+    p{
+        opacity: 0;
+        text-align: center;
+        font-size: 0.9em;
+        padding: 0px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    &+.removePaddingBottom{
+        bottom: -20px;
+    }
+}
+
+#gameplays{
+    overflow-x: hidden;
+    
+    .titres{
+        text-align: center;
+        margin-bottom: 70px;
+
+        span:last-child{
+            top: 10%;
+            right: -100%;
+            .animTranslate(50%);
+        }
+    }
+    
+    #slidr-img{
+        padding: 0px;
+    }
+
+    img{
+        width: 100%;
+    }
+}
+
+#sorties{
+    overflow-x: hidden;
+    
+    .titres{
+        text-align: center;
+        margin-bottom: 70px;
+
+        span:last-child{
+            top: 10%;
+            right: -100%;
+            .animTranslate(10%);
+        }
+    }   
+}
+
 @keyframes animLogo {
     0%{
         fill: black;
@@ -543,6 +631,7 @@ section{
         .images{
             min-height: 300px;
             margin-top: 40px;
+
             div{
                 background-position: 65% 50%;
                 background-size: 40% auto;
@@ -555,7 +644,8 @@ section{
 
         .row2 .images{
             img{
-                left: inherit;
+                left: 50%;
+                transform: translate(-50%, -50%);
             }
             div{
                 background-position: 60% 50%;

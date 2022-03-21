@@ -44,6 +44,20 @@ $(function(){
     $("#clouds>div>img").each(function(index, element){
         $(this).css("animation", "animCloud1 " + (Math.random()*8+2) + "s linear infinite");
     })
+
+    slidr.create('slidr-img', {
+        breadcrumbs: false,
+        controls: 'border',
+        direction: 'horizontal',
+        fade: false,
+        keyboard: true,
+        overflow: false,
+        pause: false,
+        theme: '#222',
+        timing: { 'linear': '0.3s ease-in' },
+        touch: true,
+        transition: 'linear'
+        }).start();
 });
 
 function sideNav(){
