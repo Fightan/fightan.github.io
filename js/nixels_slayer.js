@@ -51,4 +51,6 @@ $(function(){
             }
         }, 1100);
     }
+
+    // particlesJS.load("particlesJS", "js/particles yellow.json", function(){})
 });

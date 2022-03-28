@@ -5,8 +5,10 @@ body{
     font-size: 15px;
     line-height: 1.25em;
     color: white;
-    min-height: 100vh;
-    background: linear-gradient(172deg, rgba(57,84,113,1) 0%, rgba(26,29,38,1) 100%); 
+}
+
+html{
+    scroll-snap-type: y mandatory;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -14,18 +16,15 @@ h1, h2, h3, h4, h5, h6{
 }
 
 h1{
-    font-size: 2em;
-    color: #000;
+    font-size: 7em;
 }
 
 h2{
     font-size: 1.50em;
-    color: #333;
 }
 
 h3{
     font-size: 1.25em;
-    color: #555;
 }
 
 a{
@@ -164,6 +163,66 @@ a{
     right: 0%;
 }
 
+#particlesJS{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 110;
+}
+
+#opening{
+    background: linear-gradient(172deg, rgba(57,84,113,1) 0%, rgba(26,29,38,1) 100%);
+    scroll-snap-align: start;
+    .container-fluid{
+        background-image: url(images/nixels_slayer/opening/Groupe\ 24.png);
+        background-size: auto 120%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+
+        .row{
+            height: 100vh;
+
+            h1{
+                margin-top: 70px;
+            }
+
+            h2{
+                padding-top: 100px;
+                font-size: 4em;
+                line-height: 1.2em;
+            }
+        }
+    } 
+}
+
+#choose{
+    scroll-snap-align: start;
+    .row{
+        height: 100vh;
+    }
+
+
+    .col-md-6:first-child{
+        background-image: url(images/nixels_slayer/opening/zenitsu\ nixels\ slayer\ pixels.png);
+        background-size: cover;
+    }
+
+    .col-md-6:last-child{
+        background-image: url(images/nixels_slayer/opening/tanjiro\ nixels\ slayer\ pixels.png);
+        background-position-x: center;
+        background-size: cover;
+    }
+}
+
+#section1{
+
+    scroll-snap-align: start;
+    height: 100vh;
+    background: linear-gradient(172deg, rgba(57,84,113,1) 0%, rgba(26,29,38,1) 100%);
+}
 
 @keyframes animLogo {
     0%{
@@ -177,11 +236,12 @@ a{
     }
 }
 
-
+//Jusqu'à...
 @media screen and (max-width:768px){
     #header #menu #empty-space{
         width: inherit;
     }
+
 }
 
 //À partir de...
