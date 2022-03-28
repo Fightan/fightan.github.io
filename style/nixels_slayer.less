@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body{
+    font-family: Roboto, Verdana, sans-serif;
+    font-size: 15px;
+    line-height: 1.25em;
+    color: white;
+    min-height: 100vh;
+    background: linear-gradient(172deg, rgba(57,84,113,1) 0%, rgba(26,29,38,1) 100%); 
+}
+
+h1, h2, h3, h4, h5, h6{
+    line-height: 1.25em;
+}
+
+h1{
+    font-size: 2em;
+    color: #000;
+}
+
+h2{
+    font-size: 1.50em;
+    color: #333;
+}
+
+h3{
+    font-size: 1.25em;
+    color: #555;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+
+    &:hover{
+        text-decoration: none;
+        color: inherit;
+    }
+}
+
+.button{
+    padding: 10px 15px;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.minecraft-font{
+    font-family: "Minecraft";
+}
+
+@logo-header-width: 170px;
+@header-height: 70px;
+@animTime: 0.5s;
+
+#header{
+    border-bottom: 3px solid black;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    background-color: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(5px);
+    z-index: 100;
+
+    #menu{
+        height: @header-height;
+
+        a{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            font-weight: bold;
+        }
+        
+        .items>a{
+            border-top: 3px solid transparent;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s ease-in-out;
+
+            &:hover{
+                color: rgb(0, 0, 0);
+                // border-bottom: 3px solid white;
+                box-shadow: 0px 3px 0px white;
+            }
+        }
+        
+        .animLogo{
+            animation: animLogo 0.5s linear forwards;
+        }
+        .animOff{
+            animation-name: none;
+        }
+
+
+        #logo-header{
+            width: @logo-header-width;
+            padding: 0px 30px;
+            position: relative;
+            transition: @animTime;
+
+            svg{
+                fill: white;
+            }
+        }
+
+        .translateLogoOFF{
+            left: 0%;
+        }
+
+        .translateLogoON{
+            left: calc(100vw - 260px);
+        }
+
+        #empty-space{
+            width: @logo-header-width;
+
+            span{
+                cursor: pointer;
+                padding: 6px;
+                background-color: black;
+                // border-radius: 10px;
+                height: inherit;
+            }
+
+            #menu-burger{
+                font-size: 2em;
+                color: white;
+            }
+        }
+    }
+}
+
+@sidenavSize: 350px;
+#sidenav{
+    width: @sidenavSize;
+    height: 100vh;
+    background-color: black;
+    position: fixed;
+    color: white;
+    padding-top: @header-height;    
+    font-weight: bold;
+    transition:@animTime;
+    z-index: 99;
+
+    a{
+        padding: 20px 0px;
+        &:hover{
+            background-color: white;
+            color: black;
+            transition: all 0.3s ease-in-out;
+        }
+    }
+
+}
+
+.closeSideNav{
+    right: -@sidenavSize;
+}
+
+.openSideNav{
+    right: 0%;
+}
+
+
+@keyframes animLogo {
+    0%{
+        fill: white;
+    }
+    50%{
+        fill: black;
+    } 
+    100%{
+        fill: white;
+    }
+}
+
+
+@media screen and (max-width:768px){
+    #header #menu #empty-space{
+        width: inherit;
+    }
+}
+
+//À partir de...
+@media screen and (min-width:992px){
+    #header #menu .items>a{
+        padding: 0px 20px;
+    } 
+}
+
+@media screen and (min-width:768px){
+     #header #menu .translateLogoON{
+        left: 0%;
+    }   
+}

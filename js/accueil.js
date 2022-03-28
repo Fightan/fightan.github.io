@@ -34,6 +34,7 @@ $(function(){
 
     $("#sidenav").on("click", function(e){
         e.stopPropagation();
+        sideNav();
     })
 
     $("html, body").on("click", function(){
