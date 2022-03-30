@@ -1,6 +1,7 @@
 var animate = true;
 var animating = false;
 var isSideNavOpen = false;
+var aCharacterIsChosen = false;
 
 $(function(){
     $("#logo-header").on({mouseenter: function(){
@@ -15,17 +16,29 @@ $(function(){
     $("#menu-burger").on("click", function(e){
         e.stopPropagation();
         sideNav();
-    })
+    });
 
     $("#sidenav").on("click", function(e){
         e.stopPropagation();
         sideNav();
-    })
+    });
 
     $("html, body").on("click", function(){
         $("#logo-header").removeClass("translateLogoON");
         $("#sidenav").removeClass("openSideNav");
-    })
+    });
+
+    $("#choose .col-md-6").on("click", function(){
+        aCharacterIsChosen = true;
+        var character = $(this).attr("id");
+        $(this).addClass("chosen").removeClass("notChosen");
+
+        if(character == "zenitsuBlock"){
+            $("#tanjiroBlock").addClass("notChosen").removeClass("chosen");
+        }else{
+            $("#zenitsuBlock").addClass("notChosen").removeClass("chosen");
+        }
+    });
 
     function sideNav(){
         $("#logo-header").toggleClass("translateLogoON");
@@ -51,6 +64,13 @@ $(function(){
             }
         }, 1100);
     }
+
+    $(window).on("scroll", function(){
+        var position = $(this).scrollTop();
+        if(position >= $("#choose").position().top && !aCharacterIsChosen){
+            $("#choose").get(0).scrollIntoView();
+        }
+    })
 
     // particlesJS.load("particlesJS", "js/particles yellow.json", function(){})
 });
