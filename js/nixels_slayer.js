@@ -35,8 +35,19 @@ $(function(){
 
         if(character == "zenitsuBlock"){
             $("#tanjiroBlock").addClass("notChosen").removeClass("chosen");
+            $("#tanjiroDescription").addClass("hideDesc").removeClass("showDesc");
+            $("#zenitsuDescription").addClass("showDescu").removeClass("hideDesc");
+            $('html, body').animate({
+                scrollTop: $("#zenitsuDescription").offset().top
+            }, 50);
         }else{
             $("#zenitsuBlock").addClass("notChosen").removeClass("chosen");
+            $("#tanjiroDescription").addClass("showDesc").removeClass("hideDesc");
+            $("#zenitsuDescription").addClass("hideDesc").removeClass("showDesc");
+            $('html, body').animate({
+                scrollTop: $("#tanjiroDescription").offset().top
+            }, 50);
+
         }
     });
 
