@@ -300,6 +300,7 @@ a{
 
 #characters{
     position: relative;
+    height: 100vh;
 }
 
 #zenitsuDescription{
@@ -309,9 +310,11 @@ a{
     color: yellow;
 
     &>div{
+        position: relative;
         background-image: url(images/nixels_slayer/zenitsuDescription/zenitsu.png);
         background-repeat: no-repeat;
         background-attachment: fixed;
+        z-index: 10;
     }
 
     h3{
@@ -328,7 +331,6 @@ a{
 
 }
 
-
 #tanjiroDescription{
     position: absolute;
     width: 100%;
@@ -336,10 +338,12 @@ a{
     color: cyan;
 
     &>div{
+        position: relative;
         background-image: url(images/nixels_slayer/zenitsuDescription/tanjiro.png);
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position-x: 100%;
+        z-index: 10;
     }
 
     h3{
@@ -356,13 +360,38 @@ a{
     
 }
 
-
 .showDesc{
     left: 0px;
 }
 
 .hideDesc{
     left: -100vw;
+}
+
+#gameplay{
+    position: relative;
+    overflow: hidden;
+    background-image: url(images/nixels_slayer/zenitsuDescription/zenitsuBackground.png);
+    margin-bottom: -10px;
+    height: 100vh;
+    overflow: hidden;
+
+    .container-fluid{
+        padding: 0;
+        height: 100%;
+    }
+
+    h2{
+        font-size: 3em;
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    video{
+        width: 100%;
+    }
 }
 
 #section1{
@@ -401,6 +430,14 @@ a{
 @media screen and (max-width:768px){
     #header #menu #empty-space{
         width: inherit;
+    }
+
+    #gameplay{
+        padding-top: calc(@header-height + 20px);
+
+        h2{
+            padding-top: 20%;
+        }
     }
 }
 

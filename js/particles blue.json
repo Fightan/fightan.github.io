@@ -8,7 +8,7 @@
             }
         },
         "color":{
-            "value":"#ff0000"
+            "value":"#00FFFF"
         },
         "shape":{
             "type":"edge",
@@ -54,7 +54,7 @@
         },
         "move":{
             "enable":true,
-            "speed":20,
+            "speed":15,
             "direction":"top",
             "random":true,
             "straight":false,

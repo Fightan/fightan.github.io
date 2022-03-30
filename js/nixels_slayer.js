@@ -33,6 +33,7 @@ $(function(){
         var character = $(this).attr("id");
         $(this).addClass("chosen").removeClass("notChosen");
 
+        $("#particlesJS").css("visibility", "visible");
         if(character == "zenitsuBlock"){
             $("#tanjiroBlock").addClass("notChosen").removeClass("chosen");
             $("#tanjiroDescription").addClass("hideDesc").removeClass("showDesc");
@@ -40,6 +41,10 @@ $(function(){
             $('html, body').animate({
                 scrollTop: $("#zenitsuDescription").offset().top
             }, 50);
+            $("body").css("color", "yellow");
+            $("#logo-header>svg").css("fill", "yellow");
+            $("#header").css("border-bottom", "3px solid yellow");
+            particlesJS.load("particlesJS", "js/particles yellow.json", function(){})
         }else{
             $("#zenitsuBlock").addClass("notChosen").removeClass("chosen");
             $("#tanjiroDescription").addClass("showDesc").removeClass("hideDesc");
@@ -47,7 +52,10 @@ $(function(){
             $('html, body').animate({
                 scrollTop: $("#tanjiroDescription").offset().top
             }, 50);
-
+            $("body").css("color", "cyan");
+            $("#logo-header>svg").css("fill", "cyan");
+            $("#header").css("border-bottom", "3px solid cyan");
+            particlesJS.load("particlesJS", "js/particles blue.json", function(){})
         }
     });
 
@@ -81,7 +89,10 @@ $(function(){
         if(position >= $("#choose").position().top && !aCharacterIsChosen){
             $("#choose").get(0).scrollIntoView();
         }
+      
+        if(position <= $("#choose").offset().top){
+            aCharacterIsChosen = false;
+            $("#particlesJS").css("visibility", "hidden");
+        }
     })
-
-    // particlesJS.load("particlesJS", "js/particles yellow.json", function(){})
 });
