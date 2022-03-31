@@ -11,6 +11,7 @@ body{
     line-height: 1.25em;
     color: white;
     background-color: black;
+    text-shadow: 5px 5px 5px black;
 }
 
 html{
@@ -75,6 +76,7 @@ a{
     background-color: rgba(0, 0, 0, 0.15);
     backdrop-filter: blur(5px);
     z-index: 100;
+    text-shadow: none;
 
     .row{
         height: auto;
@@ -336,7 +338,6 @@ a{
     width: 100%;
     background-image: url(images/nixels_slayer/zenitsuDescription/tanjiroBackground.png);
     color: cyan;
-
     &>div{
         position: relative;
         background-image: url(images/nixels_slayer/zenitsuDescription/tanjiro.png);
@@ -357,6 +358,7 @@ a{
     span{
         font-size: 1.5em;
     }
+
     
 }
 
@@ -433,7 +435,7 @@ a{
     }
 
     #gameplay{
-        padding-top: calc(@header-height + 20px);
+        // padding-top: calc(@header-height + 20px);
 
         h2{
             padding-top: 20%;

@@ -59,6 +59,29 @@ $(function(){
         }
     });
 
+    $(window).on("scroll", function(){
+        var position = $(this).scrollTop();
+        if(position >= $("#choose").position().top && !aCharacterIsChosen){
+            window.scrollTo({top: $("#choose").offset().top, behavior: "instant"})
+            // $("#choose").get(0).scrollIntoView({behavior:"instant"});
+            // $("html, body").animate({
+            //     scrollTop: $("#choose").offset().top
+            // }, 0);
+        }
+      
+        if(position <= $("#choose").offset().top){
+            aCharacterIsChosen = false;
+
+            $("#particlesJS").css("visibility", "hidden");
+        }
+
+        if(position = $("#gameplay").offset().top){
+            $("#gameplay video").get(0).pause();
+            $("#gameplay video").get(0).currentTime = 0;
+            $("#gameplay video").get(0).play();
+        }
+    })
+
     function sideNav(){
         $("#logo-header").toggleClass("translateLogoON");
         $("#sidenav").toggleClass("openSideNav")
@@ -84,15 +107,4 @@ $(function(){
         }, 1100);
     }
 
-    $(window).on("scroll", function(){
-        var position = $(this).scrollTop();
-        if(position >= $("#choose").position().top && !aCharacterIsChosen){
-            $("#choose").get(0).scrollIntoView();
-        }
-      
-        if(position <= $("#choose").offset().top){
-            aCharacterIsChosen = false;
-            $("#particlesJS").css("visibility", "hidden");
-        }
-    })
 });
