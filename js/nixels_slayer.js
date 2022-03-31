@@ -44,6 +44,7 @@ $(function(){
             $("body").css("color", "yellow");
             $("#logo-header>svg").css("fill", "yellow");
             $("#header").css("border-bottom", "3px solid yellow");
+            $("#gameplay video").attr("src", "style/videos/nixels_slayer/gameplay/zenitsu.mp4");
             particlesJS.load("particlesJS", "js/particles yellow.json", function(){})
         }else{
             $("#zenitsuBlock").addClass("notChosen").removeClass("chosen");
@@ -55,6 +56,7 @@ $(function(){
             $("body").css("color", "cyan");
             $("#logo-header>svg").css("fill", "cyan");
             $("#header").css("border-bottom", "3px solid cyan");
+            $("#gameplay video").attr("src", "style/videos/nixels_slayer/gameplay/tanjiro.mp4");
             particlesJS.load("particlesJS", "js/particles blue.json", function(){})
         }
     });
