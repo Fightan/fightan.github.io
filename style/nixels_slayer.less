@@ -301,61 +301,48 @@ a{
     height: 100vh;
 }
 
-#zenitsuDescription{
+.description{
     position: absolute;
     width: 100%;
+
+    &>div{
+        position: relative;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        z-index: 10;
+    }
+
+    h3{
+        font-size: 3.5em;
+    }
+
+    h3+div{
+        padding: 30px 0px;
+    }
+
+    span{
+        font-size: 1.5em;
+    }
+}
+
+#zenitsuDescription{
     background-image: url(images/nixels_slayer/zenitsuDescription/zenitsuBackground.png);
     color: yellow;
 
     &>div{
-        position: relative;
         background-image: url(images/nixels_slayer/zenitsuDescription/zenitsu.png);
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        z-index: 10;
     }
-
-    h3{
-        font-size: 3.5em;
-    }
-
-    h3+div{
-        padding: 30px 0px;
-    }
-
-    span{
-        font-size: 1.5em;
-    }
-
 }
 
 #tanjiroDescription{
-    position: absolute;
-    width: 100%;
     background-image: url(images/nixels_slayer/zenitsuDescription/tanjiroBackground.png);
     color: cyan;
+
     &>div{
-        position: relative;
         background-image: url(images/nixels_slayer/zenitsuDescription/tanjiro.png);
-        background-repeat: no-repeat;
-        background-attachment: fixed;
         background-position-x: 100%;
         z-index: 10;
     }
-
-    h3{
-        font-size: 3.5em;
-    }
-
-    h3+div{
-        padding: 30px 0px;
-    }
-
-    span{
-        font-size: 1.5em;
-    }
-
-    
 }
 
 .showDesc{
@@ -391,8 +378,16 @@ a{
 }
 
 #mobile{
-    background-image: url(images/nixels_slayer/mobile/background.png);
+    position: relative;
+    height: 100vh;
+}
+
+.mobile{
+    width: 100%;
     background-repeat: no-repeat;
+    position: absolute;
+    top: 0px;
+    overflow: hidden;
 
     .container{
         height: 100vh;
@@ -408,18 +403,27 @@ a{
 
     h3{
         position: relative;
-        top: 20%;
+        top: 15%;
         left: 0px;
     }
 
     p{
-        font-size: 2em;
+        font-size: 1.2em;
         line-height: 1.2em;
     }
+
     a{
+        margin-top: 40px;
         text-align: center;
-        width: inherit;
     }
+}
+
+#mobileZenitsu{
+    background-image: url(images/nixels_slayer/mobile/backgroundZenitsu.png);
+}
+
+#mobileTanjiro{
+    background-image: url(images/nixels_slayer/mobile/backgroundTanjiro.png);
 }
 
 #section1{

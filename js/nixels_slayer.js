@@ -36,8 +36,8 @@ $(function(){
         $("#particlesJS").css("visibility", "visible");
         if(character == "zenitsuBlock"){
             $("#tanjiroBlock").addClass("notChosen").removeClass("chosen");
-            $("#tanjiroDescription").addClass("hideDesc").removeClass("showDesc");
-            $("#zenitsuDescription").addClass("showDescu").removeClass("hideDesc");
+            $("#tanjiroDescription, #mobileTanjiro").addClass("hideDesc").removeClass("showDesc");
+            $("#zenitsuDescription, #mobileZenitsu").addClass("showDesc").removeClass("hideDesc");
             $('html, body').animate({
                 scrollTop: $("#zenitsuDescription").offset().top
             }, 50);
@@ -45,11 +45,12 @@ $(function(){
             $("#logo-header>svg").css("fill", "yellow");
             $("#header").css("border-bottom", "3px solid yellow");
             $("#gameplay video").attr("src", "style/videos/nixels_slayer/gameplay/zenitsu.mp4");
+            $("#gameplay").css("background-image", "url(style/images/nixels_slayer/zenitsuDescription/zenitsuBackground.png)")
             particlesJS.load("particlesJS", "js/particles yellow.json", function(){})
         }else{
             $("#zenitsuBlock").addClass("notChosen").removeClass("chosen");
-            $("#tanjiroDescription").addClass("showDesc").removeClass("hideDesc");
-            $("#zenitsuDescription").addClass("hideDesc").removeClass("showDesc");
+            $("#tanjiroDescription, #mobileTanjiro").addClass("showDesc").removeClass("hideDesc");
+            $("#zenitsuDescription, #mobileZenitsu").addClass("hideDesc").removeClass("showDesc");
             $('html, body').animate({
                 scrollTop: $("#tanjiroDescription").offset().top
             }, 50);
@@ -57,6 +58,7 @@ $(function(){
             $("#logo-header>svg").css("fill", "cyan");
             $("#header").css("border-bottom", "3px solid cyan");
             $("#gameplay video").attr("src", "style/videos/nixels_slayer/gameplay/tanjiro.mp4");
+            $("#gameplay").css("background-image", "url(style/images/nixels_slayer/zenitsuDescription/tanjiroBackground.png)")
             particlesJS.load("particlesJS", "js/particles blue.json", function(){})
         }
     });
