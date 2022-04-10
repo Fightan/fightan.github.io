@@ -4,6 +4,7 @@ var isSideNavOpen = false;
 const regexMail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
 $(function(){
+    //Enclenche l'animation du logo
     $("#logo-header").on({mouseenter: function(){
         animate = true;
         if(!animating){
@@ -13,11 +14,13 @@ $(function(){
         animate = false;
     }});
 
+    //Ouvre la sidenav
     $("#menu-burger").on("click", function(e){
         e.stopPropagation();
         sideNav();
     })
 
+    //Activer/désactiver mode nuit
     $("#darkMode, .darkMode").on("click", function(){
         var mode = $(this).attr("data-mode");
         $("#darkMode>div, .darkMode>div").toggleClass("dark");
@@ -33,16 +36,19 @@ $(function(){
         }
     })
 
+    //Ferme la sidenav
     $("#sidenav").on("click", function(e){
         e.stopPropagation();
         sideNav();
     })
 
+    //Ferma la sidenav
     $("html, body").on("click", function(){
         $("#logo-header").removeClass("translateLogoON");
         $("#sidenav").removeClass("openSideNav");
     })
 
+    //Vérification du mail lors de l'input
     $("input").on("input", function(){
         var input = $(this).attr("name");
         var value = $(this).val();
@@ -58,6 +64,7 @@ $(function(){
         }
     })
 
+    //Validation du mail à l'envoi
     $("form").on("submit", function(event){
         event.preventDefault()
         var valid = true;
@@ -84,10 +91,12 @@ $(function(){
         return false;
     })
 
+    //Activer l'animation des nuages
     $("#clouds>div>img").each(function(index, element){
         $(this).css("animation", "animCloud1 " + (Math.random()*8+2) + "s linear infinite");
     })
 
+    //Activation du plugin
     slidr.create('slidr-img', {
         breadcrumbs: false,
         controls: 'border',
@@ -103,11 +112,13 @@ $(function(){
         }).start();
 });
 
+//Fonction qui permet d'ouvrir/fermer la sidenav
 function sideNav(){
     $("#logo-header").toggleClass("translateLogoON");
     $("#sidenav").toggleClass("openSideNav")
 }
 
+//Fonction qui permet d'animer le logo
 function logoAnim(){
     animating = true;
     var time = 100;

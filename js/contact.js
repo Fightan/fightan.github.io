@@ -6,6 +6,7 @@ const regexMail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{
 const regexMessage = /^[a-zA-Z0-9éèêëàâîïôûç\- ]{5,200}$/;
 
 $(function(){
+    //Enclenche l'animation du logo
     $("#logo-header").on({mouseenter: function(){
         animate = true;
         if(!animating){
@@ -15,16 +16,19 @@ $(function(){
         animate = false;
     }});
 
+    //Ouvre la sidenav
     $("#menu-burger").on("click", function(e){
         e.stopPropagation();
         sideNav();
     })
 
+    //Ferme la sidenav
     $("#sidenav").on("click", function(e){
         e.stopPropagation();
         sideNav();
     });
 
+    //Vérification des inputs à l'input
     $("input, textarea").on("input", function(){
         var input = $(this).attr("name");
         var value = $(this).val();
@@ -44,6 +48,7 @@ $(function(){
         }
     })
 
+    //Validation du formulaire
     $("form").on("submit", function(event){
         event.preventDefault()
         var valid = true;
@@ -74,11 +79,13 @@ $(function(){
         return false;
     })
 
+    //Ouvre/ferme la sidenav
     function sideNav(){
         $("#logo-header").toggleClass("translateLogoON");
         $("#sidenav").toggleClass("openSideNav")
     }
 
+    //Animation du logo
     function logoAnim(){
         animating = true;
         var time = 100;

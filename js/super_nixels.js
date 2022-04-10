@@ -5,6 +5,7 @@ var scrollPosition = 0;
 const API_KEY = "c0d102547d239cfdc183e2c191e2e419";
 
 $(function(){
+    //Enclenche l'animation du logo
     $("#logo-header").on({mouseenter: function(){
         animate = true;
         if(!animating){
@@ -14,22 +15,26 @@ $(function(){
         animate = false;
     }});
 
+    //Ouvre la sidenav
     $("#menu-burger").on("click", function(e){
         e.stopPropagation();
         sideNav();
     })
 
+    //Ferme la sidenav
     $("#sidenav").on("click", function(e){
         e.stopPropagation();
         sideNav();
     });
 
+    //Demande de géolocalisation
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(pos);
     }else {
         console.log("Non géolocalisé");
     }
 
+    //Permet de faire défiler le contenu de la page horizontalement
     $(window).bind("mousewheel DOMMouseScroll", function(event){
         var delta = -Math.max(-1, Math.min(1, (event.originalEvent.wheelDelta || -event.originalEvent.detail)));
         
@@ -38,14 +43,9 @@ $(function(){
         }
         
         $("#main").css("left", scrollPosition);
-
-        if(event.originalEvent.wheelDelta > 0 || event.originalEvent.detail < 0) {
-        }else{
-
-        }
-
     });
 
+    //Permet de récupérer la position ainsi que la météo
     function pos(position) { 
         var infopos = new Array();
         infopos.latitude = position.coords.latitude;
@@ -58,6 +58,7 @@ $(function(){
             async : "false",
             dataType : "json",
             success : function(data){
+                //Aadapte le background en fonction de la météo
                 adaptBackground(data.weather[0].main)
             },
             error : function(error){
@@ -66,6 +67,7 @@ $(function(){
         })
     }
 
+    //Fonction qui adapte le background en fonction de la météo
     function adaptBackground(weather){
         if(weather == "scattered clouds" || weather == "broken clouds"){
             $("#background").attr("src", "style/images/super_nixels/background/background-clouds.png");
@@ -85,12 +87,14 @@ $(function(){
         }
     }
 
+    //Ouvre/ferme la sidenav
     function sideNav(){
         $("#logo-header").toggleClass("translateLogoON");
         $("#sidenav").toggleClass("openSideNav")
         $("#logo-svg").toggleClass("white");
     }
 
+    //Animation du logo
     function logoAnim(){
         animating = true;
         var time = 100;

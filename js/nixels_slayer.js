@@ -4,6 +4,7 @@ var isSideNavOpen = false;
 var aCharacterIsChosen = false;
 
 $(function(){
+    //Enclenche l'animation du logo
     $("#logo-header").on({mouseenter: function(){
         animate = true;
         if(!animating){
@@ -13,27 +14,32 @@ $(function(){
         animate = false;
     }});
 
+    //Ouvre la sidenav
     $("#menu-burger").on("click", function(e){
         e.stopPropagation();
         sideNav();
     });
 
+    //Ferme la sidenav
     $("#sidenav").on("click", function(e){
         e.stopPropagation();
         sideNav();
     });
 
+    //Ferme la sidenav
     $("html, body").on("click", function(){
         $("#logo-header").removeClass("translateLogoON");
         $("#sidenav").removeClass("openSideNav");
     });
 
+    //Permet de choisir un persnnage
     $("#choose .col-md-6").on("click", function(){
         aCharacterIsChosen = true;
         var character = $(this).attr("id");
         $(this).addClass("chosen").removeClass("notChosen");
 
         $("#particlesJS").css("visibility", "visible");
+        //On affiche les divs correspondant au personnage choisi
         if(character == "zenitsuBlock"){
             $("#tanjiroBlock").addClass("notChosen").removeClass("chosen");
             $("#tanjiroDescription, #mobileTanjiro").addClass("hideDesc").removeClass("showDesc");
@@ -63,34 +69,26 @@ $(function(){
         }
     });
 
+    //Empêche le défilement si on a pas choisi de personnage
     $(window).on("scroll", function(){
         var position = $(this).scrollTop();
         if(position >= $("#choose").position().top && !aCharacterIsChosen){
             window.scrollTo({top: $("#choose").offset().top, behavior: "instant"})
-            // $("#choose").get(0).scrollIntoView({behavior:"instant"});
-            // $("html, body").animate({
-            //     scrollTop: $("#choose").offset().top
-            // }, 0);
         }
       
         if(position <= $("#choose").offset().top){
             aCharacterIsChosen = false;
-
             $("#particlesJS").css("visibility", "hidden");
         }
-
-        // if(position = $("#gameplay").offset().top){
-        //     // $("#gameplay video").get(0).pause();
-        //     $("#gameplay video").get(0).currentTime = 0;
-        //     $("#gameplay video").get(0).play();
-        // }
     })
 
+    //Ouvre/ferme la sidenav
     function sideNav(){
         $("#logo-header").toggleClass("translateLogoON");
         $("#sidenav").toggleClass("openSideNav")
     }
 
+    //Animation du logo
     function logoAnim(){
         animating = true;
         var time = 100;
