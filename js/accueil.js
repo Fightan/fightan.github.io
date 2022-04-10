@@ -1,6 +1,7 @@
 var animate = true;
 var animating = false;
 var isSideNavOpen = false;
+const regexMail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
 $(function(){
     $("#logo-header").on({mouseenter: function(){
@@ -40,6 +41,47 @@ $(function(){
     $("html, body").on("click", function(){
         $("#logo-header").removeClass("translateLogoON");
         $("#sidenav").removeClass("openSideNav");
+    })
+
+    $("input").on("input", function(){
+        var input = $(this).attr("name");
+        var value = $(this).val();
+        var regex = null;
+        if(input == "mail"){
+            regex = regexMail; 
+        }
+
+        if(!regex.test(value)){
+            $(this).addClass("error").removeClass("valid");
+        }else{
+            $(this).removeClass("error").addClass("valid");
+        }
+    })
+
+    $("form").on("submit", function(event){
+        event.preventDefault()
+        var valid = true;
+        $("input:not(.button)").each(function(){
+            var input = $(this).attr("name");
+            var value = $(this).val();
+            var regex = null;
+            if(input == "mail"){
+                regex = regexMail;
+            }
+
+            if(!regex.test(value)){
+                $(this).addClass("error").removeClass("valid");
+                valid = false;
+            }else{
+                $(this).removeClass("error").addClass("valid");
+            }
+        })
+        if(valid){
+            $("#reponse").html("Envoyé !");
+        }else{
+            $("#reponse").html("Erreur !");
+        }
+        return false;
     })
 
     $("#clouds>div>img").each(function(index, element){

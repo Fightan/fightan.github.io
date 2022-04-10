@@ -79,11 +79,11 @@ $(function(){
             $("#particlesJS").css("visibility", "hidden");
         }
 
-        if(position = $("#gameplay").offset().top){
-            $("#gameplay video").get(0).pause();
-            $("#gameplay video").get(0).currentTime = 0;
-            $("#gameplay video").get(0).play();
-        }
+        // if(position = $("#gameplay").offset().top){
+        //     // $("#gameplay video").get(0).pause();
+        //     $("#gameplay video").get(0).currentTime = 0;
+        //     $("#gameplay video").get(0).play();
+        // }
     })
 
     function sideNav(){
@@ -110,5 +110,4 @@ $(function(){
             }
         }, 1100);
     }
-
 });
